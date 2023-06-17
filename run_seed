@@ -1,0 +1,32 @@
+#!/bin/bash
+
+declare -a subjects=(1)
+declare -a data="seed"
+declare -a session=2
+declare -a num_class=3
+
+#declare -a subjects=(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15)
+
+# [1]	[File: run_seed]				[action: Set BS1:50, BS2:50]
+# [2]	[File: solver.py] [module: MFA_LR]  		[action: Remove weight_decay=0.005 from the second line in SGD]
+# [3]	[File: solver.py] [module: MFA_LR]  		[action: Set EMA=0.9 weighted loss]
+# [4]	[File: solver.py] [module: RSDA]  		[action: Set 0.1 * adv_loss for Session 1 | 1.0 * adv_loss for Session 2 and 3]
+
+
+for subj in "${subjects[@]}" 
+do
+	for iter in {4..4}; do
+		seed=$(($((100*$iter))+123));
+
+		echo "Session:" $session "  Subject: " $subj " Iter:" $iter
+		# MFA+LR
+		#python3.6 main.py --dataset $data --target $subj --iteration $iter --gpu_id 0 --num_class $num_class --max_iter1 30 --max_iter2 1000 --seed $seed --lr_a 0.001 --lr_b 0.0001 --batch_size 50 --session $session --radius 10.0 --stages 2 --bottleneck_dim 320 --test_interval 50
+
+		# RSDA
+		python3.6 main.py --dataset $data --target $subj --iteration $iter --gpu_id 0 --num_class $num_class --max_iter1 2500 --max_iter2 800 --seed $seed --lr_a 0.001 --lr_b 0.0001 --batch_size 50 --session $session --radius 10.0 --stages 2 --bottleneck_dim 320 --test_interval 50
+
+		echo ""
+		echo ""
+	done
+done
+
