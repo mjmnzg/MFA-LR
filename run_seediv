@@ -19,11 +19,8 @@ do
 		seed=$(($((100*$iter))+123));
 
 		echo "Session:" $session "  Subject: " $subj " Iteration:" $iter 		
-		
-		python3.8 main.py --dataset $data --target $subj --iteration $iter --gpu_id 0 --num_class $num_class --max_iter1 35 --max_iter2 1000 --seed $seed --lr_a 0.01 --lr_b 0.001 --batch_size 50 --session $session --radius 10.0 --stages 2 --bottleneck_dim 512 --test_interval 50
-
-		#python3.8 main.py --dataset $data --target $subj --iteration $iter --gpu_id 0 --num_class $num_class --max_iter1 4000 --max_iter2 1000 --seed $seed --lr_a 0.01 --lr_b 0.001 --batch_size 50 --session $session --radius 10.0 --stages 2 --bottleneck_dim 512 --test_interval 50
-		
+		# MFA+LR
+		python3.8 main.py --dataset $data --target $subj --iteration $iter --gpu_id 0 --num_class $num_class --max_iter1 35 --max_iter2 1000 --seed $seed --lr_a 0.01 --lr_b 0.001 --batch_size 50 --session $session --radius 10.0 --stages 2 --bottleneck_dim 512 --test_interval 50		
 
 		echo ""
 		echo ""
