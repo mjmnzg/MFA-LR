@@ -179,11 +179,6 @@ def MFA_LR(args):
 
         #classes = np.unique(Ty)
 
-        # t-SNE
-        #Tx = np.reshape(Tx, (Tx.shape[0], Tx.shape[1]*Tx.shape[2]*Tx.shape[3]))
-        #plot_tsne(Tx, Ty, "original_features.png", classes)
-
-
         # Test dataset
         test_loader = UnalignedDataLoaderTesting()
         test_loader.initialize(Vx, Vy, 200, shuffle_testing=False, drop_last_testing=False)
