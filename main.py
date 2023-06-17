@@ -1,3 +1,9 @@
+# Multi-source Feature Alignment and Label Rectification (MFA-LR)
+# Author:   Magdiel Jiménez-Guarneros
+# Article:  Jiménez-Guarneros Magdiel, Fuentes-Pineda Gibran (2023). Learning a Robust Unified Domain Adaptation
+#           Framework for Cross-subject EEG-based Emotion Recognition. Biomedical Signal Processing and Control.
+# Python 3.6
+
 import argparse
 from solvers import MFA_LR, RSDA
 from gaussian_uniform.weighted_pseudo_list import make_weighted_pseudo_list
