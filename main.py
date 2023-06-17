@@ -2,7 +2,7 @@
 # Author:   Magdiel Jiménez-Guarneros
 # Article:  Jiménez-Guarneros Magdiel, Fuentes-Pineda Gibran (2023). Learning a Robust Unified Domain Adaptation
 #           Framework for Cross-subject EEG-based Emotion Recognition. Biomedical Signal Processing and Control.
-# Python 3.6
+# Python 3.6, Pytorch 1.9.0+cu102
 
 import argparse
 from solvers import MFA_LR, RSDA
@@ -10,10 +10,11 @@ from gaussian_uniform.weighted_pseudo_list import make_weighted_pseudo_list
 import os
 import numpy as np
 import random
+import torch
 
 def main(args):
     args.log_file.write('\n\n###########  initialization ############')
-
+    
     # [Multi-source Feature Alignment (MFA)]
     X, Y, acc_pre, f1_pre, auc_pre, mat_pre, model, log_loss = MFA_LR(args)
 
