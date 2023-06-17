@@ -10,11 +10,10 @@ from gaussian_uniform.weighted_pseudo_list import make_weighted_pseudo_list
 import os
 import numpy as np
 import random
-import torch
 
 def main(args):
     args.log_file.write('\n\n###########  initialization ############')
-    
+
     # [Multi-source Feature Alignment (MFA)]
     X, Y, acc_pre, f1_pre, auc_pre, mat_pre, model, log_loss = MFA_LR(args)
 
@@ -50,15 +49,13 @@ if __name__ == "__main__":
     parser.add_argument('--source', type=str, default='amazon')
     parser.add_argument('--target', type=int, default=1)
     parser.add_argument('--iteration', type=int, default=1, help="Iteration repetitions")
-    parser.add_argument('--source_list', type=str, default='data/office/amazon_list.txt', help="The source dataset path list")
-    parser.add_argument('--target_list', type=str, default='data/office/dslr_list.txt', help="The target dataset path list")
     parser.add_argument('--test_interval', type=int, default=1, help="interval of two continuous test phase")
     parser.add_argument('--snapshot_interval', type=int, default=1000, help="interval of two continuous output model")
     parser.add_argument('--output_dir', type=str, default='san', help="output directory of our model (in ../snapshot directory)")
     parser.add_argument('--mixed_sessions', type=str, default='per_session', help="[per_session | mixed]")
     parser.add_argument('--lr_a', type=float, default=0.001, help="learning rate 1")
     parser.add_argument('--lr_b', type=float, default=0.001, help="learning rate 2")
-    parser.add_argument('--radius', type=float, default=10, help="learning rate")
+    parser.add_argument('--radius', type=float, default=10, help="radius")
     parser.add_argument('--num_class',type=int,default=31,help='the number of classes')
     parser.add_argument('--stages', type=int, default=1, help='the number of alternative iteration stages')
     parser.add_argument('--max_iter1',type=int,default=2000)
