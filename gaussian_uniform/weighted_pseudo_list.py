@@ -1,10 +1,9 @@
 import numpy as np
 import torch
 from torch.utils.data import TensorDataset, DataLoader
-#from dataloader import ImageList,image_test
 from gaussian_uniform.EM_for_gaussian_uniform import gauss_unif
 import os
-from modules import load_synth_data, load_seed, load_seed_iv, split_data, z_score, normalize
+from modules import split_data, z_score
 
 
 
