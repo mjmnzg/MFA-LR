@@ -67,3 +67,12 @@ def robust_pseudo_loss(output,label,weight,q=1.0):
     output=F.softmax(output,dim=1)
     mae=(1.0-torch.masked_select(output,mask)**q)/q
     return torch.sum(weight*mae)/(torch.sum(weight)+1e-10)
+
+class ConditionalEntropyLoss(torch.nn.Module):
+    def __init__(self):
+        super(ConditionalEntropyLoss, self).__init__()
+
+    def forward(self, x):
+        b = F.softmax(x, dim=1) * F.log_softmax(x, dim=1)
+        b = b.sum(dim=1)
+        return -1.0 * b.mean(dim=0)
