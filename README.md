@@ -3,7 +3,7 @@ This repository contains the code for our proposed method "Multi-source Feature 
 
 
 # Cite
-If the code is useful for you, please cite our paper.
+If the published code is useful for you, please cite our paper.
 
 	@article{JIMENEZGUARNEROS2023,
 	title = {Learning a robust unified domain adaptation framework for cross-subject EEG-based emotion recognition},
