@@ -5,17 +5,16 @@ import torch.nn as nn
 import lr_schedule
 import utils
 import torch.nn.functional as F
-from modules import PseudoLabeledData, load_seed, load_seed_iv, split_data,z_score, normalize
+from modules import PseudoLabeledData, load_seed, load_seed_iv, split_data, z_score, normalize
 import numpy as np
 import adversarial
-from vat import ConditionalEntropyLoss
+from utils import ConditionalEntropyLoss
 from models import EMA
 from cmd import CMD
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import f1_score
 from sklearn.preprocessing import label_binarize
-from utils import plot_tsne
 
 def test_suda(loader, model):
     start_test = True
